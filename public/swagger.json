@@ -1,0 +1,115 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "mbnp",
+    "description": "Node workers, Redis, Postgres"
+  },
+  "host": "0.0.0.0:8888",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/reviews": {
+      "get": {
+        "description": "Returns up to 100 latest records on success",
+        "summary": "List product reviews",
+        "operationId": "ApiReviewsGet",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "description": "Returns review id on success.",
+        "summary": "Add new product review",
+        "operationId": "ApiReviewsPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddNewProductReviewrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/healthcheck": {
+      "get": {
+        "description": "Checks if webserver is up and running.",
+        "summary": "Webserver healthcheck",
+        "operationId": "HealthcheckGet",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddNewProductReviewrequest": {
+      "title": "Add new product reviewRequest",
+      "example": {
+        "name": "Elvis",
+        "email": "theking@elvismansion.com",
+        "productid": "1",
+        "review": "Great product! leent"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "example": "Elvis",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "theking@elvismansion.com",
+          "type": "string"
+        },
+        "productid": {
+          "description": "",
+          "example": "1",
+          "type": "string"
+        },
+        "review": {
+          "description": "",
+          "example": "Great product! leent",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "productid",
+        "review"
+      ]
+    }
+  }
+}

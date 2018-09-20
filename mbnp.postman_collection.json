@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "mwbytes",
+		"_postman_id": "9c93e870-c3e0-63a5-6556-d154fc149dbf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new product review",
+			"request": {
+				"url": "0.0.0.0:8888/api/reviews",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Elvis\",\n\t\"email\": \"theking@elvismansion.com\",\n\t\"productid\": \"1\",\n\t\"review\": \"Great product! leent\"\n}"
+				},
+				"description": "Returns review id on success."
+			},
+			"response": []
+		},
+		{
+			"name": "List product reviews",
+			"request": {
+				"url": "0.0.0.0:8888/api/reviews",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Elvis\",\n\t\"email\": \"theking@elvismansion.com\",\n\t\"productid\": \"-1\",\n\t\"review\": \"I really love the product and will recommend! leent\"\n}"
+				},
+				"description": "Returns up to 100 latest records on success"
+			},
+			"response": []
+		},
+		{
+			"name": "Webserver healthcheck",
+			"request": {
+				"url": "0.0.0.0:8888/api/reviews",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Elvis\",\n\t\"email\": \"theking@elvismansion.com\",\n\t\"productid\": \"-1\",\n\t\"review\": \"I really love the product and will recommend! leent\"\n}"
+				},
+				"description": "Checks if webserver is up and running."
+			},
+			"response": []
+		}
+	]
+}

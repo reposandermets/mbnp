@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+
+  redis:
+      image: redis:alpine
+      container_name: productrewiew-redis
+      ports:
+        - "6379:6379"
+
+  postgres:
+    build:
+      context: .
+      dockerfile: DockerfilePostgres
+    container_name: productrewiew-postgresdocker
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'

@@ -1,0 +1,9 @@
+FROM library/postgres
+
+RUN apt-get update
+
+RUN mkdir /data
+COPY install.sql /data/
+RUN cd /data
+
+COPY install.sh /docker-entrypoint-initdb.d/
